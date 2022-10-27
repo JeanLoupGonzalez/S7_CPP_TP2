@@ -13,6 +13,7 @@ class Entree {
     string nom;
     string numTel;
     friend class Tableau;
+
 public:
     Entree(string nom, string numTel);
 
@@ -23,6 +24,8 @@ public:
     string getNom();
 
     string getNum();
+
+    friend ostream& operator << (ostream& out, Entree &entree);
 
 };
 

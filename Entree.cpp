@@ -27,3 +27,9 @@ string Entree::getNom() {
 string Entree::getNum() {
     return this->numTel;
 }
+
+ostream &operator<<(ostream &out, Entree &entree) {
+    out<<"nom:"<<entree.nom<<endl;
+    out<<"numero de telephone:"<<entree.numTel<<"\n------------"<<endl;
+    return out;
+}

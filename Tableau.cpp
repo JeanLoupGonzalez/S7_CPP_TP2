@@ -8,7 +8,7 @@
 Tableau::Tableau() {
     this->tailleTotaleTableau = 10;//taille arbitraire de 10
     this->nbElem = 0;
-    this->val = new Entree[tailleTotaleTableau];
+    this->val = new Entree[tailleTotaleTableau];//val pointe maintenant vers une entree de type Entree du tableau
 }
 
 Tableau::Tableau(int tailleTotaleTableau) {
@@ -102,4 +102,18 @@ void Tableau::supprimer(string nom) {
 Tableau::~Tableau() {
     //si je décommente la ligne en dessous, "exit code 139"
     //delete[] this->val; //supprime tout le tableau
+}
+
+ostream &operator<<(ostream &out, Tableau &tab) {
+    for (int i = 0 ; i < tab.getNbElem(); i++){
+        out<<tab.val[i];
+    }
+    return out;
+}
+
+Tableau &Tableau::operator=(const Tableau &copie) {
+    for (int i = 0; i < copie.nbElem; i++) {
+        this->val[i] = copie.val[i];
+    }
+    return *this;//retourne l'objet courant modifié
 }

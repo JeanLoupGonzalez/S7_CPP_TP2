@@ -19,7 +19,7 @@ public:
 
     ~Agenda();
 
-    void concat(Agenda a2);
+    Agenda concat(Agenda &copie);
 
     void ajouter(string nom, string num);
 
@@ -29,8 +29,17 @@ public:
 
     void display();
 
-    friend ostream& operator << (ostream& out, Agenda &agenda);
+    friend ostream &operator<<(ostream &out, Agenda &agenda);
 
+    void operator+=(const string &nomEtNum);
+
+    Agenda operator+=( Agenda &a2);
+
+    Agenda &operator=(const Agenda &copie);
+
+    friend Agenda operator+(Agenda &a1, Agenda &a2);
+
+    string operator[](string mot)const;
 };
 
 

@@ -8,10 +8,11 @@
 #include "Entree.h"
 
 class Tableau {
+    friend class Agenda;
+
     int tailleTotaleTableau;
     int nbElem;
-    Entree *val; //pointe vers une entree de type Entree du tableau
-    friend class Agenda;
+    Entree *val;
 
 public:
     void display();
@@ -34,6 +35,9 @@ public:
 
     ~Tableau();
 
+    friend ostream &operator<<(ostream &out, Tableau &tab);
+
+    Tableau& operator=(const Tableau &copie);
 
 };
 
