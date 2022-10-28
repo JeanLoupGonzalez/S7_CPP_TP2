@@ -73,10 +73,8 @@ void Agenda::operator+=(const string &nomEtNum) {
     this->ajouter(nom, numero);
 }
 
-Agenda Agenda::operator+=(Agenda &a2) {
-    Agenda res;
-    res=this->concat(a2);
-    return res;
+void Agenda::operator+=(Agenda &a2) {
+    this->concat(a2);//no functionna
 }
 
 Agenda &Agenda::operator=(const Agenda &copie) {
@@ -106,6 +104,18 @@ string Agenda::operator[](string mot) const {
         }
     }
     return occurence;
+}
+
+void Agenda::operator-=(const string nom) {
+    bool trouve = false;
+    for (int i = 0; i < this->tab.getNbElem(); i++) {
+        if(nom==this->tab.val[i].getNom() ){
+            this->tab.supprimer(nom);
+            trouve=true;
+        }
+    }
+    if(trouve) cout<<"nom "+nom+" trouve et efface"<<endl;
+    else cout<<"nom "+nom+" pas trouve"<<endl;
 }
 
 

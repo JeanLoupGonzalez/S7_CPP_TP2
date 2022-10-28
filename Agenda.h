@@ -33,13 +33,15 @@ public:
 
     void operator+=(const string &nomEtNum);
 
-    Agenda operator+=( Agenda &a2);
+    void operator+=(Agenda &a2);
+
+    void operator-=(const string nom);
 
     Agenda &operator=(const Agenda &copie);
 
     friend Agenda operator+(Agenda &a1, Agenda &a2);
 
-    string operator[](string mot)const;
+    string operator[](string mot) const;
 };
 
 

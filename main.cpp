@@ -43,18 +43,23 @@ int main() {
     agenda3 = agenda1 + agenda2;
     cout << agenda3;
 
-    cout<<"\nOn teste agenda1[ScoobyDoo]"<<endl;
-    cout<<agenda1["ScoobyDoo"]<<endl;
-    cout<<"\nOn teste agenda1[jqhsdqjsdhb] qui n'est pas dans l'agenda"<<endl;
-    cout<<agenda1["jqhsdqjsdhb"]<<endl;
+    cout << "\nOn teste agenda1[ScoobyDoo]" << endl;
+    cout << agenda1["ScoobyDoo"] << endl;
+    cout << "\nOn teste agenda1[jqhsdqjsdhb] qui n'est pas dans l'agenda" << endl;
+    cout << agenda1["jqhsdqjsdhb"] << endl;
 
-    cout<<"\nOn teste la concaténation de agenda 2 et agenda 3 avec +="<<endl;
-    agenda3.ajouter("Robert","1");
-    agenda3.ajouter("David","987");
+    cout << "\nOn teste la concaténation de agenda 2 et agenda 3 avec +=" << endl;
+    agenda3.ajouter("Robert", "1");
+    agenda3.ajouter("David", "987");
     agenda3.supprimer("Xavier");
     cout << "\nagenda2:\n" << agenda2 << endl << "agenda3:\n" << agenda3 << endl;
-    cout<<"\nagenda2+=agenda1:"<<endl;
 
+    agenda2.concat(agenda3);
+    cout<<agenda2<<endl;
+
+    cout << "\nagenda3-=" "David" << endl;
+    agenda3 -= "David";
+    cout<<agenda3<<endl;
 
 
     return 0;
