@@ -75,8 +75,8 @@ void Agenda::operator+=(const string &nomEtNum) {
 
 void Agenda::operator+=(Agenda &a2) {
     Agenda res(10);
-    res=this->concat(a2);//no functionna
-    *this=res;
+    res = this->concat(a2);
+    *this = res;
 }
 
 void Agenda::operator=(const Agenda &copie) {
@@ -94,46 +94,67 @@ Agenda operator+(Agenda &a1, Agenda &a2) {
     return res;
 }
 
-bool Agenda::operator[](string mot) const {
+string Agenda::operator[](string mot) const {
     //parcours les noms ds me tableau
-    bool trouve=false;
-    int indice=0;
+    bool trouve = false;
+    string occurence = "Le nom n est pas present dans cet agenda";
+    int indice = 0;
     for (int i = 0; i < this->tab.getNbElem(); i++) {
-        if(mot==this->tab.val[i].getNom() && trouve==false){
-            trouve=true;
-            indice=i;
+        if (mot == this->tab.val[i].getNom() && trouve == false) {
+            trouve = true;
+            indice = i + 1;
+            occurence = "occurence du nom trouve en " + to_string(indice) + "e position de l'agenda";
         }
     }
-    if(trouve==false) cout<<"Le nom n a pas ete trouve"<<endl;
-    return trouve;
+    return occurence;
 }
 
 void Agenda::operator-=(const string nom) {
     bool trouve = false;
     for (int i = 0; i < this->tab.getNbElem(); i++) {
-        if(nom==this->tab.val[i].getNom() ){
+        if (nom == this->tab.val[i].getNom()) {
             this->tab.supprimer(nom);
-            trouve=true;
+            trouve = true;
         }
     }
-    if(trouve) cout<<"nom "+nom+" trouve et efface"<<endl;
-    else cout<<"nom "+nom+" pas trouve"<<endl;
+    if (trouve) cout << "nom " + nom + " trouve et efface" << endl;
+    else cout << "nom " + nom + " pas trouve" << endl;
 }
 
-void Agenda::operator==(const Agenda &a2) {
-    if(this->tab.getNbElem()==a2.tab.getNbElem()){
-        bool pareil=true;
-        for(int i=0;i<this->tab.getNbElem();i++){
-            if(!a2[this->tab.val[i].getNom()]){
-                pareil=false;
+void Agenda::operator==(Agenda &a2) {
+    if (this->tab.getNbElem() == a2.tab.getNbElem()) {
+        bool pareil = true;
+        for (int i = 0; i < this->tab.getNbElem(); i++) {
+            if (!(a2 / this->tab.val[i].getNom())) {
+                pareil = false;
             }
         }
-        cout<<"TRUE"<<endl;
-    }else{
-        cout<<"FALSE"<<endl;
+        cout << "TRUE" << endl;
+    } else {
+        cout << "FALSE" << endl;
     }
+}
 
+bool operator/(Agenda &a, string nom) {
+    //parcours les noms ds me tableau
+    bool trouve = false;
+    for (int i = 0; i < a.tab.getNbElem(); i++) {
+        if (a.tab.chercheNom(nom) && trouve == false) {
+            trouve = true;
+        }
+    }
+    return trouve;
+}
 
+void Agenda::operator()(string lettre) {
+    bool trouve = false;
+    for (int i = 0; i < this->tab.nbElem; i++) {
+        if (this->tab.val[i].getNom().substr(0, 1) == lettre) {
+            cout << this->tab.val[i].getNom() << endl;
+            trouve = true;
+        }
+    }
+    if (!trouve) cout << "rien ne commence par cette lettre ds cet agenda" << endl;
 }
 
 

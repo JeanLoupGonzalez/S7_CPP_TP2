@@ -39,6 +39,8 @@ public:
 
     Tableau& operator=(const Tableau &copie);
 
+    bool chercheNom(string nom);
+
 };
 
 

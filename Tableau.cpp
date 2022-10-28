@@ -117,3 +117,14 @@ Tableau &Tableau::operator=(const Tableau &copie) {
     }
     return *this;//retourne l'objet courant modifié
 }
+
+bool Tableau::chercheNom(string nom) {
+    //parcours les noms ds me tableau
+    bool trouve = false;
+    for (int i = 0; i < this->getNbElem(); i++) {
+        if (nom == this->val[i].getNom() && trouve == false) {
+            trouve = true;
+        }
+    }
+    return trouve;
+}

@@ -75,8 +75,18 @@ int main() {
     agenda5+="Larissa 33";
     agenda4==agenda5;
 
+    cout<<"\nTest agenda4/Arnaud (est dedans)"<<endl;
+    cout<<agenda4/"Arnaud"<<endl;
+    cout<<"Test agenda1/bagdad (pas de dedans)"<<endl;
+    cout<<agenda1/"bagdad"<<endl;
 
-
+    cout<<"\nTest de agenda3(S) pour un seul nom commencant par S"<<endl;
+    agenda3("S");
+    agenda3+="Linge 98";
+    cout<<"\nTest de agenda3(L) pour plrs noms commencants par L"<<endl;
+    agenda3("L");
+    cout<<"\nTest de agenda3(Z) pour aucun mot commencant par Z "<<endl;
+    agenda3("Z");
 
 
 

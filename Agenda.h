@@ -41,9 +41,14 @@ public:
 
     friend Agenda operator+(Agenda &a1, Agenda &a2);
 
-    bool operator[](string mot) const;
+    string operator[](string mot) const;
 
-     void operator==(const Agenda &a2);
+    void operator==(Agenda &a2);
+
+    friend bool operator/(Agenda &a,string nom);
+
+    void operator()(string lettre);
+
 };
 
 
