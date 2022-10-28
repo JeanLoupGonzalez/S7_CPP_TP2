@@ -79,13 +79,12 @@ void Agenda::operator+=(Agenda &a2) {
     *this=res;
 }
 
-Agenda &Agenda::operator=(const Agenda &copie) {
+void Agenda::operator=(const Agenda &copie) {
     this->tab.nbElem = copie.tab.nbElem;
     this->tab.tailleTotaleTableau = copie.tab.tailleTotaleTableau;
     for (int i = 0; i < copie.tab.getNbElem(); i++) {
         this->tab.val[i] = copie.tab.val[i];
     }
-    return *this;//retourne l'objet courant modifié
 }
 
 Agenda operator+(Agenda &a1, Agenda &a2) {
@@ -95,17 +94,18 @@ Agenda operator+(Agenda &a1, Agenda &a2) {
     return res;
 }
 
-string Agenda::operator[](string mot) const {
+bool Agenda::operator[](string mot) const {
     //parcours les noms ds me tableau
     bool trouve=false;
-    string occurence="Le nom n a pas ete trouve";
+    int indice=0;
     for (int i = 0; i < this->tab.getNbElem(); i++) {
         if(mot==this->tab.val[i].getNom() && trouve==false){
             trouve=true;
-            occurence="le mot a ete trouve en "+to_string(i+1)+"e position de l'agenda";
+            indice=i;
         }
     }
-    return occurence;
+    if(trouve==false) cout<<"Le nom n a pas ete trouve"<<endl;
+    return trouve;
 }
 
 void Agenda::operator-=(const string nom) {
@@ -118,6 +118,22 @@ void Agenda::operator-=(const string nom) {
     }
     if(trouve) cout<<"nom "+nom+" trouve et efface"<<endl;
     else cout<<"nom "+nom+" pas trouve"<<endl;
+}
+
+void Agenda::operator==(const Agenda &a2) {
+    if(this->tab.getNbElem()==a2.tab.getNbElem()){
+        bool pareil=true;
+        for(int i=0;i<this->tab.getNbElem();i++){
+            if(!a2[this->tab.val[i].getNom()]){
+                pareil=false;
+            }
+        }
+        cout<<"TRUE"<<endl;
+    }else{
+        cout<<"FALSE"<<endl;
+    }
+
+
 }
 
 

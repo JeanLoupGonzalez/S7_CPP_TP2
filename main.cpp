@@ -22,7 +22,7 @@ int main() {
 
     //on ajoute un nom + num à l'agenda avec +=
     agenda1 += "Damien 66";
-    cout << "\nAffichage de l'agenda avec ajour via +=" << agenda1;
+    cout << "\nAffichage de l'agenda avec ajout via +=\n" << agenda1;
 
     //on affecte un agenda à un autre avec =
     Agenda agenda2(6);
@@ -61,6 +61,23 @@ int main() {
     cout << "\nagenda3-=" "David" << endl;
     agenda3 -= "David";
     cout<<agenda3<<endl;
+
+    cout<<"\nTest agenda2==agenda1"<<endl;
+    agenda2==agenda1;
+    cout<<"\nTest agenda2==agenda2"<<endl;
+    agenda2==agenda2;
+    cout<<"\nTest agenda4==agenda5"<<endl;
+    Agenda agenda4(10);
+    agenda4+="Larissa 33";
+    agenda4+="Arnaud 974";
+    Agenda agenda5(10);
+    agenda5+="Arnaud 974";
+    agenda5+="Larissa 33";
+    agenda4==agenda5;
+
+
+
+
 
 
     return 0;

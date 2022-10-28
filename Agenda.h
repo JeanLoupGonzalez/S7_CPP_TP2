@@ -37,11 +37,13 @@ public:
 
     void operator-=(const string nom);
 
-    Agenda &operator=(const Agenda &copie);
+    void operator=(const Agenda &copie);
 
     friend Agenda operator+(Agenda &a1, Agenda &a2);
 
-    string operator[](string mot) const;
+    bool operator[](string mot) const;
+
+     void operator==(const Agenda &a2);
 };
 
 
