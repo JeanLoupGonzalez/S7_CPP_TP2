@@ -54,7 +54,8 @@ int main() {
     agenda3.supprimer("Xavier");
     cout << "\nagenda2:\n" << agenda2 << endl << "agenda3:\n" << agenda3 << endl;
 
-    agenda2.concat(agenda3);
+    cout<<"Test agenda2+=agenda3 : res de la concatenation:"<<endl;
+    agenda2+=agenda3;
     cout<<agenda2<<endl;
 
     cout << "\nagenda3-=" "David" << endl;

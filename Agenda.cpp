@@ -74,7 +74,9 @@ void Agenda::operator+=(const string &nomEtNum) {
 }
 
 void Agenda::operator+=(Agenda &a2) {
-    this->concat(a2);//no functionna
+    Agenda res(10);
+    res=this->concat(a2);//no functionna
+    *this=res;
 }
 
 Agenda &Agenda::operator=(const Agenda &copie) {
