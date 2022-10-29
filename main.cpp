@@ -5,8 +5,6 @@
 
 using namespace std;
 
-#include "Entree.h"
-#include "Tableau.h"
 #include "Agenda.h"
 //ok
 
@@ -18,11 +16,13 @@ int main() {
     agenda1.ajouter("Michel", "789");
 
     //affiche un Agenda avec <<
+    cout<<"\nAffichage de l'agenda 1 avec agenda1 cout<<"<<endl;
     cout << agenda1;
 
     //on ajoute un nom + num à l'agenda avec +=
+    cout<<"\non ajoute un nom + num a l'agenda avec += Damien 66"<<endl;
     agenda1 += "Damien 66";
-    cout << "\nAffichage de l'agenda avec ajout via +=\n" << agenda1;
+    cout<<agenda1;
 
     //on affecte un agenda à un autre avec =
     Agenda agenda2(6);
@@ -54,40 +54,39 @@ int main() {
     agenda3.supprimer("Xavier");
     cout << "\nagenda2:\n" << agenda2 << endl << "agenda3:\n" << agenda3 << endl;
 
-    cout<<"Test agenda2+=agenda3 : res de la concatenation:"<<endl;
-    agenda2+=agenda3;
-    cout<<agenda2<<endl;
+    cout << "Test agenda2+=agenda3 : res de la concatenation:" << endl;
+    agenda2 += agenda3;
+    cout << agenda2 << endl;
 
     cout << "\nagenda3-=" "David" << endl;
     agenda3 -= "David";
-    cout<<agenda3<<endl;
+    cout << agenda3 << endl;
 
-    cout<<"\nTest agenda2==agenda1"<<endl;
-    agenda2==agenda1;
-    cout<<"\nTest agenda2==agenda2"<<endl;
-    agenda2==agenda2;
-    cout<<"\nTest agenda4==agenda5"<<endl;
+    cout << "\nTest agenda2==agenda1" << endl;
+    agenda2 == agenda1;
+    cout << "\nTest agenda2==agenda2" << endl;
+    agenda2 == agenda2;
+    cout << "\nTest agenda4==agenda5" << endl;
     Agenda agenda4(10);
-    agenda4+="Larissa 33";
-    agenda4+="Arnaud 974";
+    agenda4 += "Larissa 33";
+    agenda4 += "Arnaud 974";
     Agenda agenda5(10);
-    agenda5+="Arnaud 974";
-    agenda5+="Larissa 33";
-    agenda4==agenda5;
+    agenda5 += "Arnaud 974";
+    agenda5 += "Larissa 33";
+    agenda4 == agenda5;
 
-    cout<<"\nTest agenda4/Arnaud (est dedans)"<<endl;
-    cout<<agenda4/"Arnaud"<<endl;
-    cout<<"Test agenda1/bagdad (pas de dedans)"<<endl;
-    cout<<agenda1/"bagdad"<<endl;
+    cout << "\nTest agenda4/Arnaud (est dedans)" << endl;
+    cout << agenda4 / "Arnaud" << endl;
+    cout << "Test agenda1/bagdad (pas de dedans)" << endl;
+    cout << agenda1 / "bagdad" << endl;
 
-    cout<<"\nTest de agenda3(S) pour un seul nom commencant par S"<<endl;
+    cout << "\nTest de agenda3(S) pour un seul nom commencant par S" << endl;
     agenda3("S");
-    agenda3+="Linge 98";
-    cout<<"\nTest de agenda3(L) pour plrs noms commencants par L"<<endl;
+    agenda3 += "Linge 98";
+    cout << "\nTest de agenda3(L) pour plrs noms commencants par L" << endl;
     agenda3("L");
-    cout<<"\nTest de agenda3(Z) pour aucun mot commencant par Z "<<endl;
+    cout << "\nTest de agenda3(Z) pour aucun mot commencant par Z " << endl;
     agenda3("Z");
-
 
 
     return 0;
